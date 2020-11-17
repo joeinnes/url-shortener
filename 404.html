@@ -1,9 +1,27 @@
 <html>
+  <title>Joe's Simple Redirector</title>
 <body>
-<h1>HI!</h1>
-  <script src="config.js"></script>
+  <h1 id="status">Redirecting...</h1>
+  <p id="message"></p>
   <script>
-    console.log(window.location)
+    var pathName = window.location.pathname;
+    var id = pathName.substring(1);
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/links/' + id);
+    xhr.onreadystatechange = function () {
+    var DONE = 4; // readyState 4 means the request is done.
+    var OK = 200; // status 200 is a successful return.
+    if (xhr.readyState === DONE) {
+      if (xhr.status === OK) {
+        location.replace(xhr.responseText);
+      } else {
+        document.getElementById("status").innerText = "Error";
+        document.getElementById("message").innerText = "The short link you tried to use was invalid. Please contact Joe in case you believe you are seeing this message in error.";
+        console.log('Error: ' + xhr.status); // An error occurred during the request.
+      }
+    }
+    xhr.send(null);
+  };
   </script>
 </body>
 </html>
