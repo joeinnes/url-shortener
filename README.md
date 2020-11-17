@@ -4,7 +4,7 @@ A simpler implementation of https://github.com/nelsontky/gh-pages-url-shortener 
 
 To use yourself, add files in the 'links' directory with the name of the short link (eg: "test" will become <your_url_here>/test
 
-Configure GH Pages to use 'main' and you are done. You probably want to change the 404.html page to use your name though, rather than mine).
+Configure GH Pages to use 'main' and you are done.
 
 ## How does this work?
 
