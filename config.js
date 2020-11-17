@@ -1,3 +1,3 @@
-{
+window.configuredLinks = {
   "ft-1": "https://www.ft.com/content/e75d9c96-eec9-11e6-ba01-119a44939bb6"
 }
