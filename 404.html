@@ -9,19 +9,20 @@
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '/links/' + id);
     xhr.onreadystatechange = function () {
-    var DONE = 4; // readyState 4 means the request is done.
-    var OK = 200; // status 200 is a successful return.
-    if (xhr.readyState === DONE) {
-      if (xhr.status === OK) {
-        console.log(xhr.status)
-        console.log(xhr.responseText)
-        location.replace(xhr.responseText);
-      } else {
-        document.getElementById("status").innerText = "Error";
-        document.getElementById("message").innerText = "The short link you tried to use was invalid. Please contact Joe in case you believe you are seeing this message in error.";
-        console.log('Error: ' + xhr.status); // An error occurred during the request.
+      var DONE = 4; // readyState 4 means the request is done.
+      var OK = 200; // status 200 is a successful return.
+      if (xhr.readyState === DONE) {
+        if (xhr.status === OK) {
+          console.log(xhr.status)
+          console.log(xhr.responseText)
+          location.replace(xhr.responseText);
+        } else {
+          document.getElementById("status").innerText = "Error";
+          document.getElementById("message").innerText = "The short link you tried to use was invalid. Please contact Joe in case you believe you are seeing this message in error.";
+          console.log('Error: ' + xhr.status); // An error occurred during the request.
+        }
       }
-    }
+    };
     xhr.send(null);
   </script>
 </body>
