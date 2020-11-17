@@ -1,0 +1,1 @@
+javascript:alert('XSS%20is%20possible');
